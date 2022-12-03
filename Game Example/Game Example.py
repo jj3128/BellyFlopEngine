@@ -251,7 +251,7 @@ class Main(MonoBehaviour):
         if self.player.ycor() < self.lava.ycor() + 15:
             print("You Died!!! Restarting....")
             time.sleep(2)
-            os.system('Game.py')
+            os.system('FullGameDemo.py')
             self.Screen.wn.bye()
             sys.exit()
        
