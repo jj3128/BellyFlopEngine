@@ -3,7 +3,7 @@ BellyFlopEngine is a Python Game Engine which does not require any external libr
 It uses similar naming conventions to Unity in C# for certain things, I was unsure what to name them.
 
 
-##Getting Started
+## Getting Started
 
 Create a new python file in a folder and copy [BellyFlopEngine.py](BellyFlopEngine.py) into the same folder.
 
