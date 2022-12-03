@@ -28,4 +28,6 @@ If you want to actually make a game, try looking at some of the code in the [Dem
 
 Here is a screenshot of the [Game Example](https://github.com/jj3128/BellyFlopEngine/tree/main/Game%20Example). Its a small game where you climb cubes to avoid the lava, I made it to demonstrate the engine.
 
+Note : Input is case sensitive so if its not working, check if you have caps lock on
+
 If you have any issues or need help, Join the [Discord Server](https://discord.gg/ZwwQNQzwPQ)
