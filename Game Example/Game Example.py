@@ -97,8 +97,8 @@ class Main(MonoBehaviour):
                 self.fallingBoxes.append(FallingBox(random.randint(6, 8), False, self.fallingBoxes, self.floor, self.lava, "white")) #default 6
                 self.fallingBoxes[i].SetPos(0, -2500)
 
-        self.lava = Box(50, 1, 0, -750, "#850c12", 3)
-        self.vanityLava = Box(50, 50, 0, -750, "#610c10", 3)
+        self.lava = Box(500, 1, 0, -750, "#850c12", 3)
+        self.vanityLava = Box(500, 50, 0, -750, "#610c10", 3)
 
         self.cameraFixed = False
 
@@ -251,8 +251,8 @@ class Main(MonoBehaviour):
         if self.player.ycor() < self.lava.ycor() + 15:
             print("You Died!!! Restarting....")
             time.sleep(2)
-            os.system('FullGameDemo.py')
             self.Screen.wn.bye()
+            os.system('FullGameDemo.py')
             sys.exit()
        
         self.Camera.setpos(0, self.player.ycor())
@@ -260,8 +260,8 @@ class Main(MonoBehaviour):
         self.playerXago = self.player.xcor()
         self.playerYago = self.player.ycor()
     def FixedUpdate(self):
-        if self.loading.xcor() != 2000:
-            self.loading.setx(2000)
+        if self.loading.xcor() != 8000:
+            self.loading.setx(8000)
             self.player.sety(100)
         #print(tps, ",", lavaSpeed)
         BoxChoice = None
