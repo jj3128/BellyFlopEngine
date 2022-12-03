@@ -16,4 +16,4 @@ Note : if you want to pass a variable into the class when creating it you can ad
 
 Create a Screen, Camera and Box class, as seen in the demo file
 
-If you want to actually make a game, try looking at some of the code in the [Demo File](Demo.py) and the [Game Example File](Game Example/Game Example.py) to see what functions you can use.
+If you want to actually make a game, try looking at some of the code in the [Demo File](Demo.py) and the [Game Example File](Game_Example/Game_Example.py) to see what functions you can use.
