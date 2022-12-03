@@ -9,7 +9,7 @@ It uses similar naming conventions to Unity in C# for certain things, I was unsu
 
 Create a new python file in a folder and copy [BellyFlopEngine.py](BellyFlopEngine.py) into the same folder.
 
-Add "from BellyFlopEngine import*" to the top of the python file and create a new class which inherits from MonoBehaviour. At the bottom of the python file create an instance of that class.
+Add "from BellyFlopEngine import*" to the top of the python file and create a new class which inherits from MonoBehaviour. At the very bottom of the python file create an instance of that class.
 
 Add the line of code "_monoBehaviour = MonoBehaviour1()" at the bottom of your file (this is important as it starts the while loop which runs the entire game)
 
