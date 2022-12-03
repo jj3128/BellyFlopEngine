@@ -1,4 +1,4 @@
-## BellyFlop Python Game Engine
+## BellyFlop Python-Turtle Game Engine
 
 BellyFlopEngine is a Python Game Engine which does not require any external libraries in order to use. It uses the turtle library in order to render everything (which automatically comes with python).
 
