@@ -11,7 +11,7 @@ Create a new python file in a folder and copy [BellyFlopEngine.py](BellyFlopEngi
 
 Add "from BellyFlopEngine import*" to the top of the python file and create a new class which inherits from MonoBehaviour. At the bottom of the python file create an instance of that class.
 
-Also, add the line of code "_monoBehaviour = MonoBehaviour1()" at the bottom of your file (this is important as it starts the while loop which runs the entire game)
+Add the line of code "_monoBehaviour = MonoBehaviour1()" at the bottom of your file (this is important as it starts the while loop which runs the entire game)
 
 Create 5 functions in the class, Start, EarlyUpdate, Update, LateUpdate, FixedUpdate each with the argument "self" in them. Add a "pass" in each of these functions for now.
 Note : if you want to pass a variable into the class when creating it you can add extra arguments to the start class which basically acts like "def "__innit__"
