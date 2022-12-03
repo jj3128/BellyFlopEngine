@@ -12,11 +12,11 @@ Create a new python file in a folder and copy [BellyFlopEngine.py](BellyFlopEngi
 Add "from BellyFlopEngine import*" to the top of the python file and create a new class which inherits from MonoBehaviour. At the bottom of the python file create an instance of that class.
 
 Create 5 functions in the class, Start, EarlyUpdate, Update, LateUpdate, FixedUpdate each with the argument "self" in them. Add a "pass" in each of these functions for now.
-Note : if you want to pass a variable into the class when creating it you can add extra arguments to the start class which basically acts like "def __innit__"
+Note : if you want to pass a variable into the class when creating it you can add extra arguments to the start class which basically acts like "def "__innit__"
 
-Create a Screen, Camera and Box class, as seen in the demo file
+Create a Screen, Camera and Box class in the start function, as seen in the demo file
 
-If you want to actually make a game, try looking at some of the code in the [Demo File](Demo.py) and the [Game Example File](Game Example/Game_Example.py) to see what functions you can use.
+If you want to actually make a game, try looking at some of the code in the [Demo File](Demo.py) and the [Game Example File](Game Example) to see what functions you can use.
 
 ## Info
 
@@ -26,4 +26,4 @@ If you want to actually make a game, try looking at some of the code in the [Dem
   </a>
 </div>
 
-Here is a screenshot of the [Game Example](Game Example/Game_Example.py). Its a small game where you climb cubes to avoid the lava I made to demonstrate the engine.
+Here is a screenshot of the [Game Example](Game Example). Its a small game where you climb cubes to avoid the lava I made to demonstrate the engine.
