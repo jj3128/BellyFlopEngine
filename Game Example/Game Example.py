@@ -181,7 +181,7 @@ class Main(MonoBehaviour):
         self.highScoreText.text = str(int(self.playerHighestY))
         global lavaSpeed, tps
         lavaSpeed += .12 * self.deltaTime
-        tps += .001 * self.deltaTime
+        tps += .0007 * self.deltaTime
         self.SetTps(tps)
         self.lava.sety(self.lava.ycor() + lavaSpeed * self.deltaTime)
 
