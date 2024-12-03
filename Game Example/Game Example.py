@@ -45,7 +45,7 @@ class Main(MonoBehaviour):
         self.Camera = Camera(0, 0, 0.5)
         self.Camera.size = 1.5
 
-        self.SetTps(.25)        
+        self.SetTps(tps)
 
         self.xVelocity = 0
         self.yVelocity = 0
@@ -105,7 +105,7 @@ class Main(MonoBehaviour):
         self.loading = Box(100, 100, 0, 0, "white", 0)
     def Distance(self, x1, y1, x2, y2):
         return math.sqrt((x2 - x1)*(x2 - x1) + (y2-y1)*(y2-y1))
-    def CollisionResolution(self, movingThing, staticThing):
+    def CollisionResolution(self, movingThing, staticThing, isBoxMoving):
         closestDistance = 10000000
         closestPoint = 0
         corner = 9.9
@@ -147,8 +147,11 @@ class Main(MonoBehaviour):
        
         if closestPoint == 1 or closestPoint == 2:
             movingThing.sety(staticThing.ycor() + staticThing.height * 10 + movingThing.height * 10)
-            self.yVelocity = 0
             self.grounded = True
+            if self.yVelocity <= 0 and isBoxMoving == True:
+                self.yVelocity = -500
+            elif self.yVelocity <= 0:
+                self.yVelocity = 0
         if closestPoint == 3 or closestPoint == 4:
             self.onWall = True
             self.wallDir = -1
@@ -173,10 +176,12 @@ class Main(MonoBehaviour):
         else:
             return number
     def Update(self):
+        if self.deltaTime > 2:
+            self.deltaTime = 0
         self.highScoreText.text = str(int(self.playerHighestY))
         global lavaSpeed, tps
         lavaSpeed += .12 * self.deltaTime
-        tps += .0005 * self.deltaTime
+        tps += .001 * self.deltaTime
         self.SetTps(tps)
         self.lava.sety(self.lava.ycor() + lavaSpeed * self.deltaTime)
 
@@ -216,6 +221,20 @@ class Main(MonoBehaviour):
         self.player.setx(self.player.xcor() + self.xVelocity * self.deltaTime)    
         self.player.sety(self.player.ycor() + self.yVelocity * self.deltaTime)
 
+
+        self.vanityLava.sety(self.lava.ycor() - 510)
+
+        self.grounded = False
+        self.onWall = False
+        self.boxWall = None
+        for box1 in self.fallingBoxes:
+            if Physics.CheckCollision(self.player, box1.box):
+                self.CollisionResolution(self.player, box1.box, box1.moving)
+            if Physics.CheckCollision(self.groundCheck, box1.box):
+                self.grounded = True
+        if Physics.CheckCollision(self.player, self.floor):
+            self.CollisionResolution(self.player, self.floor, False)
+
         self.groundCheck.setx(self.player.xcor())
         self.groundCheck.sety(self.player.ycor() - 15)
 
@@ -226,19 +245,6 @@ class Main(MonoBehaviour):
 
         self.playerInside.setx(self.player.xcor())
         self.playerInside.sety(self.player.ycor())
-
-        self.vanityLava.sety(self.lava.ycor() - 510)
-
-        self.grounded = False
-        self.onWall = False
-        self.boxWall = None
-        for box1 in turtles:
-            if box1 == self.player or box1 == self.leftWall or box1 == self.rightWall or box1 == self.groundCheck or box1 == self.leftVanityWall or box1 == self.rightVanityWall or box1 == self.playerInside or box1 == self.loading or box1 == self.lava or box1 == self.playerEyes2 or box1 == self.playerEyes1:
-                continue
-            if Physics.CheckCollision(self.player, box1):
-                self.CollisionResolution(self.player, box1)
-            if Physics.CheckCollision(self.groundCheck, box1):
-                self.grounded = True
                
         if self.player.xcor() < self.leftWall.xcor():
             self.player.setx(self.rightWall.xcor() - 1)
@@ -252,7 +258,7 @@ class Main(MonoBehaviour):
             print("You Died!!! Restarting....")
             time.sleep(2)
             self.Screen.wn.bye()
-            os.system('FullGameDemo.py')
+            os.system('Game Example.py')
             sys.exit()
        
         self.Camera.setpos(0, self.player.ycor())
@@ -262,7 +268,7 @@ class Main(MonoBehaviour):
     def FixedUpdate(self):
         if self.loading.xcor() != 8000:
             self.loading.setx(8000)
-            self.player.sety(100)
+            self.player.sety(-300)
         #print(tps, ",", lavaSpeed)
         BoxChoice = None
         for box in self.fallingBoxes:
